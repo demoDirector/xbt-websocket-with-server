@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="robots" content="noindex,nofollow">
+        <title>Demo with a WebSocket</title>
+        <link rel="stylesheet" media="all" href="css/maincss.css">
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="highcharts.js">
+        </script>
+        <script type="text/javascript" src="jquery-3.2.1.js">
+        </script>
+        <!--script src="modernizr-custom.min.js"></script-->
+    </head>
+    <body>
+      <noscript>
+      <div>
+        <style scoped>
+          p {background-color:powderblue;}
+        </style>
+        <p>Javascript is not enabled. To see real-time prices, please
+            enable JavaScript. </p>
+      </div>
+      </noscript>
+
+    <!-- COMMENT Reference View: Following is the BOX MODEL that appears under the
+    preceding title bar layout with CSS id of m-title-div-w-border
+  body
+       div "wrap-centered-content" **main centered container 100% of width
+          aside         **left aligned column of small text
+            m-table
+               price table
+            m-table
+            container-Chart
+               chart
+            container-Chart
+          aside             end left-most column-keep this a FIXED PIXEL WIDTH
+       div id="m-container-text" **larger column of content to right-PERCENT WIDTH
+       div m-container-text
+   div //end wrapped centered content ***main centered container
+    div id="m-footer"
+           <p id="m-footer-p"></p>
+       div
+    </body-->
+
+    <!--// LOGO AND MENU...-->
+    <div class="m-title-div-w-border">
+        <img src="images/BC_Logo_.png" alt="" style="width:35px;height:35px;">
+        Demo <span class="m-i-serif-type-letter-sized">I</span>: Bitcoin
+        Price in Real Time&mdash;an Implementation of the HTML 5 WebSocket Interface
+        <div id="flip" tabindex="2">Developing the Demo</div>
+        <div id="panel">I programmed the Web page, and the JavaScript
+            client (client) using the following tools and
+        programming languages:
+        The <a class="my-link" href="https://bitfinex.readme.io/v2/docs/ws-general">
+        BitFinex WebSocket API</a>,
+        <a class="my-link" href="#" onclick="window.open('https://netbeans.org/',
+        '_blank')">NetBeans integrated development environment (IDE) 8.2</a>,
+        <a class="my-link" href="#" onclick="window.open('https://www.w3.org/TR/WD-css2/','_blank')">
+        Cascading Style Sheets, level 2</a> (CSS2),
+        <a class="my-link" href="#" onclick="window.open('http://jquery.com/','_blank')">JQuery</a>,
+        <a class="my-link" href="#" onclick="window.open('http://www.json.org/','_blank')">
+         JavaScript Object Notation</a> (JSON),
+        the <a class="my-link" href="#" onclick="window.open('https://api.highcharts.com/highcharts/','_blank')">Highcharts
+        application programming interface</a> (API), and
+        <a class="my-link" href="#" onclick="window.open('https://www.w3.org/TR/html5/','_blank')">HTML 5</a>,
+        which includes the
+        <a class="my-link" href="#" onclick="window.open('https://html.spec.whatwg.org/multipage/web-sockets.html#network','_blank')">
+        WebSocket interface</a>. I developed this software on a computer running Microsoft Windows 8.1.
+        For debugging the client, I used the
+        <a class="my-link" href="#" onclick="window.open('https://developers.google.com/web/tools/chrome-devtools/console','_blank')">
+        Google Chrome DevTools Console</a>.
+        <br>
+       </div>
+    </div>
+    <div class="wrap-centered-content">
+      <div class="aside">
+         <div class="m-Table">
+           <div class="m-TableRowGroup">
+             <div id="m-TableCell1">Activity at<br>the WebSocket</div>
+             <div id="m-TableCell1-Status">No WebSocket created.</div>
+             <div id="m-TableCell-Heart"></div>
+           </div>
+         </div>
+        <div id="container_Chart" style="width: 300px; height: 350px; margin:0 0 0 75px">
+        </div>
+
+        <div tabindex="5" class="flip-aside-left"></div>
+        <div class="panel-aside-left">
+             <header class="m-hWelcome"></header>
+        <br><br>
+        </div>
+        <div class="offset">
+          <button  onclick="endDemo(STR_WEBSOCKET_CLOSED + STR_SPACE)" style=" height:2.0rem;
+              padding:.05rem .05rem .05rem .05rem;
+              background: bisque; color:whitesmoke; color:black;
+              font:1rem Futura;font-family:‘Century Gothic’, AppleGothic, sans-serif;
+              position:relative;left:11.5rem;">End Demo</button>
+        </div>
+      </div><!--end aside-->
+       <div class="m-container-text">
+       <br>
+     <p id="m-h4"><em>A Demo with a</em> <em style="color:#ff6666;">WebSocket!</em>
+     <!--a style="color:#f7f5e6" tabindex="3" onMouseOver="return change_ImageInTitle()" onMouseOut="return change_ImageInTitleBack()" onclick="window.open('ws.html','','scrollbars=yes,titlebar=no,menubar=no,toolbar=yes,width=700,height=600,resizable=yes,location=no,status=no')"><em style="color:#ff6666;">WebSocket!</em>
+     <img src="=Popicon_1.gif" alt="" id="Popscicle" height="20" width="20"></a-->
+     <br><br>
+      <!--[if IE lte 9]><br><br><p style="background-color:#c0b3a0;color:blue;padding:.94rem;">
+      The Web page cannot be
+    displayed in your browser. Upgrade your browser to the recent Chrome,
+    Internet Explorer, Opera, Firefox or Safari. Thanks!</p><br><br><![endif]-->
+     <div class="m-p">The programming demo consists of the Web page you are viewing and the
+        JavaScript client (client) that informs the Web page. I programmed the client to create a WebSocket connected to
+        <a class="my-link" tabindex="4" href="#" onclick="window.open('http://www.bitfinex.com/','_blank')">BitFinex</a>, a
+        bitcoin exchange that offers real-time bitcoin price data to subscribers.<br><br>
+        The WebSocket enables simultaneous communication between the BitFinex WebSocket server (server) and the client.
+        An event is represented programmatically as an <i>event object</i> that contains a message. The box
+        labeled <b>Activity at the WebSocket</b> (Activity box), in the upper left of the Web page, indicates
+        an incoming or outgoing event at the WebSocket.
+        <br><br>
+        <header class="m-h5">Incoming Events</header>
+        <br>
+        The client listens at the WebSocket for events from the server&mdash;these are incoming events.
+        For example, when there is an incoming event that contains the message of <i>price update</i>, the
+        Activity box displays "Incoming: Price update!" Then the client updates the chart on the Web page with
+        the price. The client expects an event from the server every 5 seconds.
+        To indicate the connection is open, the server sends an event with the message of <i>heartbeat</i>
+        in place of <i>price update</i>.
+         <br><br>
+         <header class="m-h5">Outgoing Events</header>
+         <br>
+        When there is no incoming event for more than 5 seconds, the client sends an event with the message
+        of <i>Ping</i> to the server. Consequently, the Activity box displays "Outgoing: Ping!"
+        The <i>Ping</i> tests whether the connection is open. Therefore, the client expects a
+        reply from the server within 5 seconds, or the client sets the Activity box to
+        display "There is no connection with the server."
+        <br><br>
+        </div>
+        </div> <!-- END M-CONTAINER TEXT-->
+        </div><!--END wrapper centered-->
+        <br><br>
+        <hr>
+        <footer class="m-footer-p">
+
+        </footer>
+ <script type="text/javascript" src="js-client-socket.js">
+ </script>
+</body>
+</html>
