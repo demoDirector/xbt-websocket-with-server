@@ -62,8 +62,7 @@
         <a class="my-link" href="#" onclick="window.open('http://jquery.com/','_blank')">JQuery</a>,
         <a class="my-link" href="#" onclick="window.open('http://www.json.org/','_blank')">
          JavaScript Object Notation</a> (JSON),
-        the <a class="my-link" href="#" onclick="window.open('https://api.highcharts.com/highcharts/','_blank')">Highcharts
-        application programming interface</a> (API), and
+        <a class="my-link" href="#" onclick="window.open('https://www.highcharts.com/','_blank')">Highcharts</a>, and
         <a class="my-link" href="#" onclick="window.open('https://www.w3.org/TR/html5/','_blank')">HTML 5</a>,
         which includes the
         <a class="my-link" href="#" onclick="window.open('https://html.spec.whatwg.org/multipage/web-sockets.html#network','_blank')">
@@ -109,39 +108,22 @@
       The Web page cannot be
     displayed in your browser. Upgrade your browser to the recent Chrome,
     Internet Explorer, Opera, Firefox or Safari. Thanks!</p><br><br><![endif]-->
-     <div class="m-p">The programming demo consists of the Web page you are viewing and the
-        JavaScript client (client) that informs the Web page. I programmed the client to create a WebSocket connected to
+     <div class="m-p">The programming demo consists of the Web page you are viewing and the 
+        JavaScript client that informs the Web page. I programmed the client to create a <i>WebSocket</i> connected to
         <a class="my-link" tabindex="4" href="#" onclick="window.open('http://www.bitfinex.com/','_blank')">BitFinex</a>, a
         bitcoin exchange that offers real-time bitcoin price data to subscribers.<br><br>
-        The WebSocket enables simultaneous communication between the BitFinex WebSocket server (server) and the client.
-        An event is represented programmatically as an <i>event object</i> that contains a message. The box
-        labeled <b>Activity at the WebSocket</b> (Activity box), in the upper left of the Web page, indicates
-        an incoming or outgoing event at the WebSocket.
+        The <i>WebSocket</i> enables simultaneous communication between the BitFinex <i>WebSocket</i> server and
+        the JavaScript client. A communication received at a <i>WebSocket</i> is represented programmatically as 
+        an <i>event object</i> that contains a message. The box labeled <b>Activity at the WebSocket</b>, in the 
+        upper left of the Web page, indicates incoming and outgoing events at the <i>WebSocket</i> of the JavaScript 
+        client.         
         <br><br>
-        <header class="m-h5">Incoming Events</header>
-        <br>
-        The client listens at the WebSocket for events from the server&mdash;these are incoming events.
-        For example, when there is an incoming event that contains the message of <i>price update</i>, the
-        Activity box displays "Incoming: Price update!" Then the client updates the chart on the Web page with
-        the price. The client expects an event from the server every 5 seconds.
-        To indicate the connection is open, the server sends an event with the message of <i>heartbeat</i>
-        in place of <i>price update</i>.
-         <br><br>
-         <header class="m-h5">Outgoing Events</header>
-         <br>
-        When there is no incoming event for more than 5 seconds, the client sends an event with the message
-        of <i>Ping</i> to the server. Consequently, the Activity box displays "Outgoing: Ping!"
-        The <i>Ping</i> tests whether the connection is open. Therefore, the client expects a
-        reply from the server within 5 seconds, or the client sets the Activity box to
-        display "There is no connection with the server."
-        <br><br>
-        </div>
         </div> <!-- END M-CONTAINER TEXT-->
         </div><!--END wrapper centered-->
         <br><br>
         <hr>
         <footer class="m-footer-p">
-
+       
         </footer>
  <script type="text/javascript" src="js-client-socket.js">
  </script>
