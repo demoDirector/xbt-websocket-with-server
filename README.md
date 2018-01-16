@@ -16,7 +16,6 @@ and open the template in the editor.
     <body> 
         <div class="wrap-centered-content">    
         <div class="m-container-text">
-        <a id="aaa"></a>    
         <h1>Accessing My Programming Demos</h1>
         <hr style="border:2px solid #ff0000;"> 
         I list Demo I and Demo II on my resume. The sections that follow provide access to the demos. <br>
@@ -31,8 +30,9 @@ and open the template in the editor.
            <li><a href="https://cryptoestudiante.github.io/xbt-websocket-with-server/">
             View the Demo</span></a>!
            <ul>
-              <li>This demo has a server application (app) that provides a set of exemplary last transaction prices to the JavaScript
-                  client at startup. The server app makes a HTTP request to the <a href="https://www.CEX.io/">CEX.IO</a> exchange 
+              <li>This demo has a server application (app) that provides a set of exemplary last transaction prices to the    
+                  JavaScript client at startup. The server app makes a HTTP request to the 
+                  <a href="https://www.CEX.io/">CEX.IO</a> exchange 
                   for a last transaction price, and then forms a set of exemplary last transaction prices to return to 
                   the client. This design simulates a 24-hour price monitor from the perspective of the client.
                   At startup, the client displays the prices in its Web page chart.<br><br>
